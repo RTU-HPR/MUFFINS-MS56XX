@@ -11,7 +11,7 @@ MS56XX ms5611;
 
 MS56XX::Config config = {
   .wire = &Wire,
-  .i2c_address = MS56XX::I2C_0x77,
+  .i2c_address = MS56XX::I2C_0x76,
   .type = MS56XX::MS5611,
   .oversampling = MS56XX::OSR_ULTRA_HIGH,
   .reference_pressure = 101325
