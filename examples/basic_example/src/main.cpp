@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-#include <MUFFINS__MS56XX.h>
+#include <MUFFINS_MS56XX.h>
 
 const int SENSOR_POWER_ENABLE_PIN = 17;
 const int WIRE0_SCL = 1;
