@@ -37,7 +37,7 @@ bool MS56XX::begin(Config &config)
   return status;
 }
 
-bool MS56XX::reset(uint8_t mathMode)
+bool MS56XX::reset(const uint8_t mathMode)
 {
   // Reset the sensor
   _command(MS56XX_CMD_RESET);
@@ -60,7 +60,7 @@ bool MS56XX::reset(uint8_t mathMode)
   return PROM_OK;
 }
 
-bool MS56XX::read(Data &data, float outside_temperature)
+bool MS56XX::read(const float outside_temperature)
 {
   //  VARIABLES NAMES BASED ON DATASHEET
   //  ALL MAGIC NUMBERS ARE FROM DATASHEET
@@ -123,7 +123,7 @@ bool MS56XX::read(Data &data, float outside_temperature)
   return true;
 }
 
-void MS56XX::set_reference_pressure(int reference_pressure)
+void MS56XX::set_reference_pressure(const int reference_pressure)
 {
   _config.reference_pressure = reference_pressure;
 }

@@ -58,7 +58,7 @@ public:
     float temperature;
     int32_t pressure;
     float altitude;
-  };
+  } data;
 
 private:
   Config _config;
@@ -104,7 +104,7 @@ public:
    * @param config The configuration settings for the sensor.
    * @return True if the initialization is successful, false otherwise.
    */
-  bool begin(Config &config);
+  bool begin(const Config &config);
 
   /**
    * @brief Resets the MS56XX sensor to its default state.
@@ -113,23 +113,22 @@ public:
    * If using MS5607 it will be set to 1.
    * @return True if the reset was successful, false otherwise.
    */
-  bool reset(uint8_t altered_mode = 0);
+  bool reset(const uint8_t altered_mode = 0);
 
   /**
    * @brief Reads data from the MS56XX sensor.
    *
    * This function reads data from the MS56XX sensor and stores it in the provided data structure.
    *
-   * @param data The data structure to store the sensor readings.
    * @param outside_temperature The outside temperature in degrees Celsius used for altitude calculations (defaults to 15 degress Celsius).
    * @return true if the read operation was successful, false otherwise.
    */
-  bool read(Data &data, float outside_temperature = 15);
+  bool read(const float outside_temperature = 15);
 
   /**
    * @brief Sets the reference pressure for altitude calculations.
    *
    * @param reference_pressure The reference pressure in Pa.
    */
-  void set_reference_pressure(int reference_pressure);
+  void set_reference_pressure(const int reference_pressure);
 };

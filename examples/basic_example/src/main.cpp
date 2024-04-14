@@ -8,7 +8,6 @@ const int WIRE0_SCL = 1;
 const int WIRE0_SDA = 0;
 
 MS56XX ms5611;
-
 MS56XX::Config config = {
   .wire = &Wire,
   .i2c_address = MS56XX::I2C_0x76,
@@ -16,8 +15,6 @@ MS56XX::Config config = {
   .oversampling = MS56XX::OSR_ULTRA_HIGH,
   .reference_pressure = 101325
 };
-
-MS56XX::Data data;
 
 void setup()
 {
@@ -43,14 +40,14 @@ void setup()
 
 void loop()
 {
-  if (ms5611.read(data))
+  if (ms5611.read())
   {
     Serial.print("Temperature: ");
-    Serial.print(data.temperature);
+    Serial.print(ms5611.data.temperature);
     Serial.print(" C, Pressure: ");
-    Serial.print(data.pressure);
+    Serial.print(ms5611.data.pressure);
     Serial.print(" Pa, Altitude: ");
-    Serial.print(data.altitude);
+    Serial.print(ms5611.data.altitude);
     Serial.println(" m");
   }
   else
