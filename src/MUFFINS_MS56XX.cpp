@@ -10,7 +10,7 @@ MS56XX::~MS56XX()
   return;
 }
 
-bool MS56XX::begin(Config &config)
+bool MS56XX::begin(const Config &config)
 {
   config.wire->beginTransmission(config.i2c_address);
   if (config.wire->endTransmission() != 0)
